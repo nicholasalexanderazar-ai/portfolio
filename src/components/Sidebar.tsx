@@ -1,6 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 import CopyEmailButton from './CopyEmailButton'
 
+function useBreakpoint(px: number) {
+  const [below, setBelow] = useState(() => window.innerWidth < px)
+  useEffect(() => {
+    const h = () => setBelow(window.innerWidth < px)
+    window.addEventListener('resize', h)
+    return () => window.removeEventListener('resize', h)
+  }, [px])
+  return below
+}
+
 const LinkedinIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -27,6 +37,7 @@ const NAV_ITEMS = [
 ] as const
 
 export default function Sidebar() {
+  const isMobile = useBreakpoint(1280)
   const [activeSection, setActiveSection] = useState<string>('')
   const tickerRef = useRef<HTMLDivElement>(null)
 
@@ -52,10 +63,111 @@ export default function Sidebar() {
   const slowerTicker = () => tickerRef.current?.getAnimations()[0]?.updatePlaybackRate(0.25)
   const normalTicker = () => tickerRef.current?.getAnimations()[0]?.updatePlaybackRate(1)
 
-  const logoBlocks = Array.from({ length: 8 }, (_, i) => (
-    <div key={i} style={{ width: '40px', height: '40px', background: '#E8E8E8', borderRadius: '10px', flexShrink: 0 }} />
-  ))
+  const tickerItems = [
+    { src: '/spark-logo.png',    alt: 'Spark'      },
+    { src: '/navora-logo.png',   alt: 'Navora'     },
+    { src: '/mystory-logo.png',  alt: 'MyStory'    },
+    { src: '/ayo-logo.png',      alt: 'AYO'        },
+    { src: '/drapelock-logo.png',alt: 'Drapelock'  },
+    { src: '/random-logo-1.png', alt: 'Random'     },
+    { src: '/x-pank-logo.png',   alt: 'X-Pank'    },
+    { src: '/cheeks-logo.png',   alt: 'Cheeks'     },
+  ]
+  const logoBlocks = tickerItems.map((item, i) =>
+    item
+      ? <img key={i} src={item.src} alt={item.alt} style={{ width: '40px', height: '40px', borderRadius: '10px', objectFit: 'cover', flexShrink: 0 }} />
+      : <div key={i} style={{ width: '40px', height: '40px', background: '#E8E8E8', borderRadius: '10px', flexShrink: 0 }} />
+  )
 
+  /* Shared nav pill — used in both mobile and desktop */
+  const NavPill = () => (
+    <div style={{ display: 'flex', alignItems: 'center', background: '#E4E4E2', borderRadius: '12px', padding: '3px', gap: '1px', flexShrink: 0 }}>
+      {NAV_ITEMS.map(({ label, id }) => (
+        <button
+          key={id}
+          onClick={() => scrollTo(id)}
+          style={{
+            padding:      '6px 13px',
+            borderRadius: '9px',
+            border:       'none',
+            background:   activeSection === id ? '#fff' : 'transparent',
+            color:        activeSection === id ? '#111' : '#888',
+            fontSize:     '13px',
+            fontWeight:   '500',
+            cursor:       'pointer',
+            transition:   'background 0.15s, color 0.15s',
+            whiteSpace:   'nowrap',
+            boxShadow:    activeSection === id ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+          }}
+        >
+          {label}
+        </button>
+      ))}
+      <a
+        href="/resume.pdf" target="_blank" rel="noreferrer"
+        style={{
+          padding:        '6px 13px',
+          borderRadius:   '9px',
+          color:          '#888',
+          fontSize:       '13px',
+          fontWeight:     '500',
+          textDecoration: 'none',
+          whiteSpace:     'nowrap',
+          display:        'inline-block',
+        }}
+      >
+        Resume
+      </a>
+    </div>
+  )
+
+  /* ── Mobile: full bio + nav pill at top-right ── */
+  if (isMobile) {
+    return (
+      <div
+        style={{
+          width:         '100%',
+          background:    '#F5F5F3',
+          padding:       '24px 24px 28px',
+          display:       'flex',
+          flexDirection: 'column',
+          gap:           '14px',
+        }}
+      >
+        {/* Row 1: avatar + nav pill */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
+          <img
+            src="/nicholas.png"
+            alt="Nicholas Azar"
+            style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover', objectPosition: '50% 15%', flexShrink: 0 }}
+          />
+          <NavPill />
+        </div>
+
+        {/* Hero text */}
+        <div style={{ fontSize: '28px', fontWeight: '500', lineHeight: '1.3', color: '#111111' }}>
+          Hey! I&apos;m Nicholas. Product Designer and Builder based in Nashville.
+        </div>
+
+        {/* Description */}
+        <div style={{ color: '#999', fontSize: '14px', lineHeight: '1.6' }}>
+          5+ years designing and building digital products across startups, software, and personal ventures.
+        </div>
+
+        <CopyEmailButton />
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ position: 'relative', width: '8px', height: '8px', flexShrink: 0 }}>
+            <div className="pulse-ring" />
+            <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#22c55e' }} />
+          </div>
+          <span style={{ color: '#22c55e', fontSize: '14px' }}>Available for work</span>
+        </div>
+      </div>
+    )
+  }
+
+  /* ── Desktop: full sticky sidebar ── */
   return (
     <div
       style={{
@@ -84,7 +196,7 @@ export default function Sidebar() {
 
         <div style={{
           fontSize: '30px', fontWeight: '500', lineHeight: '1.3',
-          color: '#111111', fontFamily: 'var(--font-serif)',
+          color: '#111111',
         }}>
           Hey! I&apos;m Nicholas. Product Designer and Builder based in Nashville.
         </div>
@@ -140,7 +252,7 @@ export default function Sidebar() {
           </a>
         </div>
 
-        {/* Ticker — pushed lower, bleeds edge-to-edge */}
+        {/* Ticker — bleeds edge-to-edge */}
         <div
           style={{ overflow: 'hidden', marginLeft: '-32px', marginRight: '-32px', marginTop: '40px', marginBottom: '0' }}
           onMouseEnter={slowerTicker}

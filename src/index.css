@@ -58,3 +58,15 @@ html {
   background: #22c55e;
   animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
+
+/* ─── Problem section image grid / carousel ─── */
+.problem-images-mobile { display: none !important; }
+.problem-images-desktop { display: grid !important; }
+
+@media (max-width: 640px) {
+  .problem-images-desktop { display: none !important; }
+  .problem-images-mobile  { display: flex !important; }
+}
+
+/* hide scrollbar on the mobile carousel */
+.problem-images-mobile::-webkit-scrollbar { display: none; }
