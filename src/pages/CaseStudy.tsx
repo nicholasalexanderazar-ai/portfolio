@@ -69,7 +69,18 @@ const sectionLabel: React.CSSProperties = {
 
 function SectionImageBlock({ block }: { block: ProjectSectionImage }) {
   const items = block.images ?? []
+  const [activeIdx, setActiveIdx] = useState(0)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
   if (items.length === 0 && !block.src) return null
+
+  const onScroll = () => {
+    const el = scrollRef.current
+    if (!el) return
+    const slideWidth = el.offsetWidth * 0.76 + 12
+    const idx = Math.round(el.scrollLeft / slideWidth)
+    setActiveIdx(Math.max(0, Math.min(idx, items.length - 1)))
+  }
 
   return (
     <>
@@ -93,25 +104,10 @@ function SectionImageBlock({ block }: { block: ProjectSectionImage }) {
         }
       </div>
 
-      {/* ── Mobile: vertical stack ── */}
-      <div
-        className="problem-images-mobile"
-        style={{ display: 'none', flexDirection: 'column', gap: '12px' }}
-      >
-        {items.map((item, i) => (
-          <div
-            key={i}
-            style={{ background: '#D9D9D9', borderRadius: '16px', padding: '20px' }}
-          >
-            <img src={item.src} alt={item.caption} style={{ width: '72%', display: 'block', margin: '0 auto', borderRadius: '10px' }} />
-          </div>
-        ))}
-      </div>
-
-      {/* ── Captions row ── */}
+      {/* ── Captions row (desktop only) ── */}
       {items.length > 0 && (
         <div
-          className="problem-captions"
+          className="problem-images-desktop"
           style={{
             display:             'grid',
             gridTemplateColumns: `repeat(${items.length}, 1fr)`,
@@ -129,6 +125,39 @@ function SectionImageBlock({ block }: { block: ProjectSectionImage }) {
           ))}
         </div>
       )}
+
+      {/* ── Mobile: single gray container, peek carousel + updating caption ── */}
+      <div
+        className="problem-images-mobile"
+        style={{ display: 'none', flexDirection: 'column', gap: '12px' }}
+      >
+        <div style={{ background: '#D9D9D9', borderRadius: '16px', overflow: 'hidden' }}>
+          <div
+            ref={scrollRef}
+            onScroll={onScroll}
+            className="scroll-hidden"
+            style={{
+              display:          'flex',
+              overflowX:        'auto',
+              scrollSnapType:   'x mandatory',
+              scrollbarWidth:   'none',
+              gap:              '12px',
+              padding:          '24px 20px',
+            }}
+          >
+            {items.map((item, i) => (
+              <div key={i} style={{ width: '76%', flexShrink: 0, scrollSnapAlign: 'start' }}>
+                <img src={item.src} alt="" style={{ width: '100%', display: 'block', borderRadius: '12px' }} />
+              </div>
+            ))}
+          </div>
+        </div>
+        {items.length > 0 && (
+          <p style={{ fontSize: '13px', color: '#999', lineHeight: '1.55', margin: 0, textAlign: 'center', minHeight: '40px' }}>
+            {items[activeIdx]?.caption}
+          </p>
+        )}
+      </div>
 
       {block.transition && (
         <div style={{ maxWidth: '680px', margin: '28px auto 0' }}>

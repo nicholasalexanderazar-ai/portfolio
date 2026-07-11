@@ -182,16 +182,15 @@ const FAVORITES: FavCategory[] = [
   },
 ]
 
-/* ─── Card wrapper shared style ─────────────────────────── */
-const card: CSSProperties = {
-  background:    '#F7F7F5',
-  borderRadius:  '20px',
-  padding:       '40px',
-}
-
 export default function Home() {
   const isMobile = useBreakpoint(1280)
   const isNarrow = useBreakpoint(768)
+
+  const card: CSSProperties = {
+    background:   '#F7F7F5',
+    borderRadius: isNarrow ? '0' : '20px',
+    padding:      isNarrow ? '28px 20px' : '40px',
+  }
 
   const [activeImg,    setActiveImg]    = useState(0)
   const [autoPlay,     setAutoPlay]     = useState(true)
@@ -242,7 +241,7 @@ export default function Home() {
         <motion.section
           id="work"
           {...fadeUp}
-          style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}
+          style={{ padding: isNarrow ? '0' : '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}
         >
           <ProjectCard
             title="Spark"
@@ -256,7 +255,7 @@ export default function Home() {
             href="/spark"
             imageSrc="/spark-preview.png"
             imageAlt="Spark app screenshot"
-            imageInsetMobile={{ top: '10%' }}
+            imageInsetMobile={{ top: '22%' }}
           />
 
           <ProjectCard
@@ -280,23 +279,23 @@ export default function Home() {
             headline="Co-founding the design and product direction for a platform that preserves the stories that matter most."
             tags={['Web App', 'End to End', 'AI']}
             bgStyle={{ background: 'radial-gradient(ellipse at 85% 80%, #D4AD74 0%, #907751 50%, #6A5230 100%)' }}
-            bgStyleMobile={{ background: 'radial-gradient(ellipse at 50% 82%, #D4AD74 0%, #907751 50%, #6A5230 100%)' }}
+            bgStyleMobile={{ background: 'radial-gradient(ellipse 110% 48% at 50% 108%, #C9A467 0%, transparent 70%), #5A3E22' }}
             textColor="#FFFFFF"
             iconBg="rgba(255,255,255,0.2)"
             iconSrc="/mystory-logo.png"
             href={null}
             imageSrc="/mystory-preview.png"
             imageAlt="MyStory platform screenshot"
-            imageInsetMobile={{ top: '8%' }}
+            imageInsetMobile={{ top: '16%' }}
             badge="Coming Soon"
           />
 
           <ProjectCard
             title="AYO"
-            headline="Shaping the early concept for a new social platform built around the music you love."
+            headline="Shaping the early concept for a new social platform built around everything you're passionate about — music, film, cars, and beyond."
             tags={['Web App', 'UX', 'Social', '0→1']}
             bgStyle={{ background: 'radial-gradient(ellipse at 80% 45%, rgba(0,47,255,0.32) 0%, transparent 55%), radial-gradient(ellipse at 70% 70%, rgba(255,0,242,0.22) 0%, transparent 45%), #080808' }}
-            bgStyleMobile={{ background: 'radial-gradient(ellipse at 50% 72%, rgba(0,47,255,0.32) 0%, transparent 50%), radial-gradient(ellipse at 55% 82%, rgba(255,0,242,0.22) 0%, transparent 40%), #080808' }}
+            bgStyleMobile={{ background: 'radial-gradient(ellipse 100% 40% at 40% 105%, rgba(0,47,255,0.55) 0%, transparent 70%), radial-gradient(ellipse 80% 35% at 65% 108%, rgba(255,0,242,0.38) 0%, transparent 60%), #080808' }}
             textColor="#FFFFFF"
             iconBg="#1A1A1A"
             iconSrc="/ayo-logo.png"
@@ -304,7 +303,7 @@ export default function Home() {
             imageSrc="/ayo-preview.png"
             imageAlt="AYO platform screenshot"
             imageInset={{ top: '22%', bottom: '12%', left: '4%', right: '8%' }}
-            imageInsetMobile={{ top: '28%', bottom: '12%', left: '4%', right: '8%' }}
+            imageInsetMobile={{ top: '34%', bottom: '12%', left: '4%', right: '8%' }}
             badge="Coming Soon"
           />
 
@@ -313,7 +312,7 @@ export default function Home() {
         {/* ══════════════════════════════════════
             SECTION 2 — ABOUT
         ══════════════════════════════════════ */}
-        <motion.section id="about" {...fadeUp} style={{ padding: '24px' }}>
+        <motion.section id="about" {...fadeUp} style={{ padding: isNarrow ? '8px 0' : '24px' }}>
           <div style={card}>
             <span style={eyebrow}>About</span>
             <h2 style={heading}>A bit about me</h2>
@@ -400,7 +399,7 @@ export default function Home() {
         {/* ══════════════════════════════════════
             SECTION 2B — FAVORITES
         ══════════════════════════════════════ */}
-        <motion.section {...fadeUp} style={{ padding: '24px', paddingTop: 0 }}>
+        <motion.section {...fadeUp} style={{ padding: isNarrow ? '0 0 8px' : '0 24px 24px' }}>
           <div style={card}>
             <span style={eyebrow}>Favorites</span>
             <h2 style={heading}>And the things that inspire me</h2>
@@ -550,6 +549,13 @@ export default function Home() {
                             exit={{ opacity: 0, y: -4 }}
                             transition={{ duration: 0.16 }}
                           >
+                            {FAVORITES[activeCat].items[selectedItem].imageSrc && (
+                              <img
+                                src={FAVORITES[activeCat].items[selectedItem].imageSrc}
+                                alt=""
+                                style={{ width: '100%', aspectRatio: '3/2', objectFit: 'cover', borderRadius: '10px', marginBottom: '16px', display: 'block' }}
+                              />
+                            )}
                             <div style={{ fontSize: '17px', fontWeight: '500', color: '#111', marginBottom: '4px', paddingRight: '28px' }}>
                               {FAVORITES[activeCat].items[selectedItem].title}
                             </div>
@@ -590,6 +596,13 @@ export default function Home() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.14 }}
                       >
+                        {FAVORITES[activeCat].items[selectedItem].imageSrc && (
+                          <img
+                            src={FAVORITES[activeCat].items[selectedItem].imageSrc}
+                            alt=""
+                            style={{ width: '100%', aspectRatio: '3/2', objectFit: 'cover', borderRadius: '10px', marginBottom: '14px', display: 'block' }}
+                          />
+                        )}
                         <div style={{ fontSize: '16px', fontWeight: '500', color: '#111', marginBottom: '4px', paddingRight: '24px' }}>
                           {FAVORITES[activeCat].items[selectedItem].title}
                         </div>
@@ -651,7 +664,7 @@ export default function Home() {
         {/* ══════════════════════════════════════
             SECTION 3 — PROCESS (combined)
         ══════════════════════════════════════ */}
-        <motion.section id="process" {...fadeUp} style={{ padding: '24px' }}>
+        <motion.section id="process" {...fadeUp} style={{ padding: isNarrow ? '8px 0 0' : '24px' }}>
           <div style={card}>
             <div style={{ display: 'flex', flexDirection: isNarrow ? 'column' : 'row', gap: isNarrow ? '28px' : '56px', alignItems: 'flex-start' }}>
 
@@ -702,7 +715,7 @@ export default function Home() {
         {/* ══════════════════════════════════════
             SECTION 5 — CTA
         ══════════════════════════════════════ */}
-        <motion.section {...fadeUp} style={{ padding: '24px', paddingBottom: '48px' }}>
+        <motion.section {...fadeUp} style={{ padding: isNarrow ? '8px 12px 40px' : '24px 24px 48px' }}>
           <div
             style={{
               background:     '#111',
