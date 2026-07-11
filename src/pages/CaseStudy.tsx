@@ -126,34 +126,43 @@ function SectionImageBlock({ block }: { block: ProjectSectionImage }) {
         </div>
       )}
 
-      {/* ── Mobile: single gray container, peek carousel + updating caption ── */}
+      {/* ── Mobile: full-bleed gray container, clickable stack, caption below ── */}
       <div
         className="problem-images-mobile"
-        style={{ display: 'none', flexDirection: 'column', gap: '12px' }}
+        style={{ display: 'none', flexDirection: 'column' }}
       >
-        <div style={{ background: '#D9D9D9', borderRadius: '16px', overflow: 'hidden' }}>
-          <div
-            ref={scrollRef}
-            onScroll={onScroll}
-            className="scroll-hidden"
-            style={{
-              display:          'flex',
-              overflowX:        'auto',
-              scrollSnapType:   'x mandatory',
-              scrollbarWidth:   'none',
-              gap:              '12px',
-              padding:          '24px 20px',
-            }}
-          >
-            {items.map((item, i) => (
-              <div key={i} style={{ width: '76%', flexShrink: 0, scrollSnapAlign: 'start' }}>
-                <img src={item.src} alt="" style={{ width: '100%', display: 'block', borderRadius: '12px' }} />
-              </div>
-            ))}
-          </div>
+        <div style={{ background: '#D9D9D9', margin: '0 -24px', overflow: 'hidden' }}>
+          {items.map((item, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIdx(i)}
+              style={{
+                display:     'block',
+                width:       '100%',
+                border:      'none',
+                borderTop:   i > 0 ? '2px solid #fff' : 'none',
+                background:  'transparent',
+                cursor:      'pointer',
+                padding:     '20px 24px',
+                position:    'relative',
+                outline:     'none',
+              }}
+            >
+              <img src={item.src} alt="" style={{ width: '78%', display: 'block', margin: '0 auto', borderRadius: '10px' }} />
+              {activeIdx === i && (
+                <div style={{
+                  position:     'absolute',
+                  inset:        '6px',
+                  border:       '2.5px solid rgba(0,0,0,0.35)',
+                  borderRadius: '10px',
+                  pointerEvents:'none',
+                }} />
+              )}
+            </button>
+          ))}
         </div>
         {items.length > 0 && (
-          <p style={{ fontSize: '13px', color: '#999', lineHeight: '1.55', margin: 0, textAlign: 'center', minHeight: '40px' }}>
+          <p style={{ fontSize: '13px', color: '#999', lineHeight: '1.55', margin: '12px 0 0', textAlign: 'center', minHeight: '38px' }}>
             {items[activeIdx]?.caption}
           </p>
         )}
@@ -206,25 +215,13 @@ function SectionOutcomeImages({ items }: { items: ProjectSectionOutcomeItem[] })
         ))}
       </div>
 
-      {/* Mobile carousel */}
+      {/* Mobile: vertical stack */}
       <div className="problem-images-mobile" style={{ display: 'none', flexDirection: 'column', gap: '10px' }}>
-        <div
-          ref={scrollRef}
-          onScroll={onScroll}
-          style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '12px', scrollbarWidth: 'none' }}
-        >
-          {items.map((item, i) => (
-            <div key={i} style={{ width: '82vw', flexShrink: 0, scrollSnapAlign: 'start', background: '#F5F5F3', borderRadius: '16px', padding: '20px' }}>
-              <img src={item.src} alt={item.label} style={{ width: '100%', display: 'block', borderRadius: '12px' }} />
-            </div>
-          ))}
-        </div>
-        {/* Dot indicators */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '6px' }}>
-          {items.map((_, i) => (
-            <div key={i} style={{ width: '6px', height: '6px', borderRadius: '50%', background: i === activeDot ? '#111' : '#D0D0CE', transition: 'background 0.2s' }} />
-          ))}
-        </div>
+        {items.map((item, i) => (
+          <div key={i} style={{ background: '#F5F5F3', borderRadius: '12px', padding: '20px' }}>
+            <img src={item.src} alt={item.label} style={{ width: '100%', display: 'block', borderRadius: '10px' }} />
+          </div>
+        ))}
       </div>
     </>
   )

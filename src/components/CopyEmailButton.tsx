@@ -53,7 +53,7 @@ export default function CopyEmailButton({ dark = false }: CopyEmailButtonProps) 
           display:      'block',
         }}
       >
-        {/* Default label — centered so no trailing dead space */}
+        {/* Default label — shows copied feedback on mobile (no hover), hides on desktop hover */}
         <motion.span
           animate={{ opacity: hovered ? 0 : 1 }}
           transition={{ duration: 0.2 }}
@@ -66,7 +66,31 @@ export default function CopyEmailButton({ dark = false }: CopyEmailButtonProps) 
             pointerEvents:  'none',
           }}
         >
-          Copy my email
+          <AnimatePresence mode="wait">
+            {copied ? (
+              <motion.span
+                key="mob-copied"
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.18 }}
+                style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#22c55e' }}
+              >
+                <span style={{ fontSize: '13px', lineHeight: 1 }}>✓</span>
+                <span>Copied!</span>
+              </motion.span>
+            ) : (
+              <motion.span
+                key="mob-copy"
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.18 }}
+              >
+                Copy my email
+              </motion.span>
+            )}
+          </AnimatePresence>
         </motion.span>
 
         {/* Expanded — email left, Copy/Copied right */}

@@ -74,15 +74,15 @@ const aboutFacts = [
   },
   {
     title: 'Four years in Uzbekistan',
-    body:  "Instead of taking a job offer in Chicago, I moved to Uzbekistan to join a cotton agriculture and irrigation startup. I lived in a shipping container in a remote village, going from fieldwork in blistering heat to meetings with government officials — managing up to 36 projects at once across agriculture, defense, healthcare, and fashion.",
+    body:  "Instead of taking a job offer in Chicago, I moved to Uzbekistan to join a cotton agriculture and irrigation startup. I lived in a shipping container in a remote village, going from fieldwork in blistering heat to meetings with government officials, managing up to 36 projects at once across agriculture, defense, healthcare, and fashion.",
   },
   {
     title: "Preserving people's stories",
-    body:  "One of my biggest passions is helping people preserve their life stories before they're lost. That became real after documenting my grandfather's life before he passed — showing me just how much we lose when no one captures someone's story. That's part of why I built MyStory, a platform for recording life stories through guided, AI-assisted conversation.",
+    body:  "One of my biggest passions is helping people preserve their life stories before they're lost. That became real after documenting my grandfather's life before he passed, showing me just how much we lose when no one captures someone's story. That's part of why I built MyStory, a platform for recording life stories through guided, AI-assisted conversation.",
   },
   {
     title: 'Beauty, in every form',
-    body:  "I love finding beauty in simple things — from the wings of an insect to the stars in the sky to a well-designed car or app. I dive into the details of why something works, and I'll talk about it longer than most people want to listen. That habit of close attention is probably the most consistent thread across everything I do.",
+    body:  "I love finding beauty in simple things: from the wings of an insect to the stars in the sky to a well-designed car or app. I dive into the details of why something works, and I'll talk about it longer than most people want to listen. That habit of close attention is probably the most consistent thread across everything I do.",
   },
 ]
 
@@ -96,12 +96,12 @@ const processRows = [
   {
     icon:  '/claude.png',
     title: 'Finding the platonic ideal',
-    body:  "I'll use Claude or ChatGPT to dig into the core problem and ask what a platonic ideal solution would look like — an Airbnb trick: if 5 stars is the baseline, what would an absurd 10 look like?",
+    body:  "I'll use Claude or ChatGPT to dig into the core problem and ask what a platonic ideal solution would look like. An Airbnb trick: if 5 stars is the baseline, what would an absurd 10 look like?",
   },
   {
     icon:  '/sketch.png',
     title: 'Concepting before looking anything up',
-    body:  'I sketch concepts on pen and paper before researching anything else. Looking at existing patterns too early invites groupthink — good ideas can get filtered out before they ever get a chance to exist.',
+    body:  'I sketch concepts on pen and paper before researching anything else. Looking at existing patterns too early invites groupthink; good ideas can get filtered out before they ever get a chance to exist.',
   },
   {
     icon:  '/mobbin.png',
@@ -111,7 +111,7 @@ const processRows = [
   {
     icon:  '/figma.png',
     title: 'Prototyping and building',
-    body:  'I move fast between Figma for iterating on ideas and Claude Code or Lovable for pushing a real, testable prototype — getting as close to the finished thing as early as possible.',
+    body:  'I move fast between Figma for iterating on ideas and Claude Code or Lovable for pushing a real, testable prototype, getting as close to the finished thing as early as possible.',
   },
 ]
 
@@ -126,7 +126,7 @@ const FAVORITES: FavCategory[] = [
     items: [
       {
         title: 'About Time', subtitle: '2013', imageSrc: '/about-time.png',
-        why: "About Time has a little bit of everything — it's funny, it's sweet, it's sad — it touches almost every emotion. But the real reason I love it is something deeper. There's a trope I'm drawn to more than almost any other: a character given a second chance, or a newfound perspective on life, that completely changes how they see things. It shows up in It's a Wonderful Life, in Up, even in A Christmas Carol. What makes About Time different is that it's less dramatic — the main character isn't suicidal, he isn't visited by ghosts. He just realizes the beauty in everyday, ordinary life. And because it's so mundane, it actually hits harder.",
+        why: "About Time has a little bit of everything: it's funny, it's sweet, it's sad. It touches almost every emotion. But the real reason I love it is something deeper. There's a trope I'm drawn to more than almost any other: a character given a second chance, or a newfound perspective on life, that completely changes how they see things. It shows up in It's a Wonderful Life, in Up, even in A Christmas Carol. What makes About Time different is that it's less dramatic; the main character isn't suicidal, he isn't visited by ghosts. He just realizes the beauty in everyday, ordinary life. And because it's so mundane, it actually hits harder.",
       },
       {
         title: 'Airplane!', subtitle: '1980', imageSrc: '/airplane.png',
@@ -138,7 +138,7 @@ const FAVORITES: FavCategory[] = [
       },
       {
         title: 'North by Northwest', subtitle: '1959', imageSrc: '/north-by-northwest.png',
-        why: "Cary Grant is my favorite actor of all time, and I love everything Hitchcock made, but this one is the most fun — fast-paced, great design, real wit, an interesting plot all the way through. It's the perfect summer night movie, and one of the most iconic classics there is.",
+        why: "Cary Grant is my favorite actor of all time, and I love everything Hitchcock made, but this one is the most fun: fast-paced, great design, real wit, an interesting plot all the way through. It's the perfect summer night movie, and one of the most iconic classics there is.",
       },
       {
         title: 'The Princess Bride', subtitle: '1987', imageSrc: '/the-princess-bride.png',
@@ -154,24 +154,24 @@ const FAVORITES: FavCategory[] = [
     label: 'Songs',
     aspect: '1 / 1',
     items: [
-      { title: 'Born to Die',          subtitle: 'Lana Del Rey',    imageSrc: '/born-to-die.png',          why: "I remember the day the music video came out. The violins that open it, the way they worked with the cinematography — it was the first Lana Del Rey song I ever heard, and I fell in love with it because of that video. Since then she's become my favorite artist, and I've seen her twice in concert, once in Abu Dhabi at the 2019 Grand Prix and once in Brandon, Mississippi. But this song carries the most nostalgia — it's where it all started." },
-      { title: 'Devil in a New Dress', subtitle: 'Kanye West',      imageSrc: '/devil-in-a-new-dress.png', why: "A lot of people call My Beautiful Dark Twisted Fantasy Kanye's greatest album, which is saying a lot. This is the best song on it. The contrast of the elegant instruments against Rick Ross's voice, the bass, the angelic quality of the whole thing — it's a beautiful song in the truest sense of the word." },
+      { title: 'Born to Die',          subtitle: 'Lana Del Rey',    imageSrc: '/born-to-die.png',          why: "I remember the day the music video came out. The violins that open it, the way they worked with the cinematography: it was the first Lana Del Rey song I ever heard, and I fell in love with it because of that video. Since then she's become my favorite artist, and I've seen her twice in concert, once in Abu Dhabi at the 2019 Grand Prix and once in Brandon, Mississippi. But this song carries the most nostalgia; it's where it all started." },
+      { title: 'Devil in a New Dress', subtitle: 'Kanye West',      imageSrc: '/devil-in-a-new-dress.png', why: "A lot of people call My Beautiful Dark Twisted Fantasy Kanye's greatest album, which is saying a lot. This is the best song on it. The contrast of the elegant instruments against Rick Ross's voice, the bass, the angelic quality of the whole thing: it's a beautiful song in the truest sense of the word." },
       { title: "Diplomat's Son",       subtitle: 'Vampire Weekend', imageSrc: '/diplomats-son.png',        why: "It almost feels like several different songs within one, but every part is great. The piano toward the end is beautiful, the violins that come in at the beginning are stunning. Super catchy. One of those songs that pulls you in differently every time you listen." },
-      { title: "Lover's Rock",         subtitle: 'TV Girl',         imageSrc: '/lovers-rock.png',          why: "Probably my favorite song of all time. The melody is just stunning — somehow sweet and sad at the same time, and it doesn't let go. TV Girl is phenomenal across the board, but this one is in a different category. Best melody, full stop." },
-      { title: 'In My Heart',          subtitle: 'Moby',            imageSrc: '/in-my-heart.png',          why: "This song takes me back to sitting in cafes in Tashkent, Uzbekistan, commuting between the farm in Jizzakh and the city, with my best friend Will Patterson. We first heard it at a place called Coffee Milk, and it kind of became our song. Moby has that early-2000s quality — nostalgic in the way the Jason Bourne soundtracks are nostalgic — and this one captures it better than almost anything else he made." },
-      { title: 'Ring of Past',         subtitle: 'Midnight Trust',  imageSrc: '/ring-of-past.png',         why: "The most recent addition to this list. It has a sassy but melancholy melody that's hard to describe but impossible to forget — nostalgic in a way that even the album art signals. Discovered it not long ago and it immediately earned its spot." },
+      { title: "Lover's Rock",         subtitle: 'TV Girl',         imageSrc: '/lovers-rock.png',          why: "Probably my favorite song of all time. The melody is just stunning, somehow sweet and sad at the same time, and it doesn't let go. TV Girl is phenomenal across the board, but this one is in a different category. Best melody, full stop." },
+      { title: 'In My Heart',          subtitle: 'Moby',            imageSrc: '/in-my-heart.png',          why: "This song takes me back to sitting in cafes in Tashkent, Uzbekistan, commuting between the farm in Jizzakh and the city, with my best friend Will Patterson. We first heard it at a place called Coffee Milk, and it kind of became our song. Moby has that early-2000s quality, nostalgic in the way the Jason Bourne soundtracks are nostalgic, and this one captures it better than almost anything else he made." },
+      { title: 'Ring of Past',         subtitle: 'Midnight Trust',  imageSrc: '/ring-of-past.png',         why: "The most recent addition to this list. It has a sassy but melancholy melody that's hard to describe but impossible to forget, nostalgic in a way that even the album art signals. Discovered it not long ago and it immediately earned its spot." },
     ],
   },
   {
     label: 'Cars',
     aspect: '1 / 1',
     items: [
-      { title: 'Aston Martin One-77',               subtitle: '1 of 77',  imageSrc: '/one-77.png',             why: "Possibly the most beautiful car ever designed — modern or otherwise. The long nose, the aggressive front, the rear (the best rear of any Aston Martin ever made), the lines that wrap around the silhouette — there is not one bad angle on this car. I visited Aston Martin Works in the UK with my sister and was standing in the car park when I saw headlights approaching in the distance. Someone was bringing their One-77 in to be serviced. One of the coolest moments I've had as a car person. My personal favorite is number 49 of 77 — I've been tracking it since it was new, watched it move from Geneva to Connecticut to California, and it's now a few miles from my house in Franklin, Tennessee." },
-      { title: 'Ferrari Monza SP1',                 subtitle: '1 of 499', imageSrc: '/sp1.png',                why: "The most recent addition to this list. The SP1 takes what Ferrari did with the SP2 and removes the one thing that made it practical — the second seat — making it purer, more selfish, more itself. The surface area that continues past the driver's seat is stunning. The headlights, the taillights, the rear wheel arches reminiscent of the original Testarossa — I think Ferrari got this one exactly right." },
-      { title: 'Mercedes-Benz SLR Stirling Moss',   subtitle: '1 of 75',  imageSrc: '/slr-stirling-moss.png',  why: "The peak of the SLR. I flew to the Abu Dhabi Grand Prix specifically to see the silver one being auctioned, spent most of the day looking for it, nearly gave up — and then tripped over something, turned around, and it was right there. Only 75 were ever made. Three are in black, and two of those have the 722S wheels. My favorite would be the black one with the 722S wheels — it's the one pictured here." },
-      { title: 'Aston Martin Vanquish Zagato',       subtitle: '1 of 99',  imageSrc: '/vanquish-zagato.png',    why: "The Vanquish Zagato came in four forms — Coupe, Volante, Shooting Brake, and Speedster (only 28 made). I used to prefer the Speedster, but the Coupe has the cleanest lines and I've come around completely. The taillights are my favorite detail — so Italian, and the contrast with the British platform underneath is exactly what makes this car special. The Zagato bubble roof, the circular fog lights, the silhouette — it's stunning from every angle." },
-      { title: 'Pagani Zonda R',                    subtitle: '1 of 13',  imageSrc: '/zonda-r.png',            why: "One of the most aggressive and menacing fronts of any car ever made. Track-only, black on black, one of the best-sounding cars ever built. The example pictured here is believed to be the one in Toronto — delivery graphics removed, with Zonda R Evo front and rear aero added. Some call this spec the \"Liquid.\" Only 13 were ever made, and every one of them is a work of art." },
-      { title: 'Mercedes-Benz SLR McLaren 722',      subtitle: '1 of 150', imageSrc: '/slr-722.png',            why: "A timeless car. The darkened headlights and taillights, the lowered suspension, the carbon fiber splitter, the silhouette — everything about this car feels like it was designed to age well. 150 coupes were made. I prefer the 722S wheels (the convertible spec) on this body, though this photo shows the standard coupe wheel. Either way, one of the great cars." },
+      { title: 'Aston Martin One-77',               subtitle: '1 of 77',  imageSrc: '/one-77.png',             why: "Possibly the most beautiful car ever designed, modern or otherwise. The long nose, the aggressive front, the rear (the best rear of any Aston Martin ever made), the lines that wrap around the silhouette: there is not one bad angle on this car. I visited Aston Martin Works in the UK with my sister and was standing in the car park when I saw headlights approaching in the distance. Someone was bringing their One-77 in to be serviced. One of the coolest moments I've had as a car person. My personal favorite is number 49 of 77; I've been tracking it since it was new, watched it move from Geneva to Connecticut to California, and it's now a few miles from my house in Franklin, Tennessee." },
+      { title: 'Ferrari Monza SP1',                 subtitle: '1 of 499', imageSrc: '/sp1.png',                why: "The most recent addition to this list. The SP1 takes what Ferrari did with the SP2 and removes the one thing that made it practical, the second seat, making it purer, more selfish, more itself. The surface area that continues past the driver's seat is stunning. The headlights, the taillights, the rear wheel arches reminiscent of the original Testarossa: I think Ferrari got this one exactly right." },
+      { title: 'Mercedes-Benz SLR Stirling Moss',   subtitle: '1 of 75',  imageSrc: '/slr-stirling-moss.png',  why: "The peak of the SLR. I flew to the Abu Dhabi Grand Prix specifically to see the silver one being auctioned, spent most of the day looking for it, nearly gave up, and then tripped over something, turned around, and it was right there. Only 75 were ever made. Three are in black, and two of those have the 722S wheels. My favorite would be the black one with the 722S wheels; it's the one pictured here." },
+      { title: 'Aston Martin Vanquish Zagato',       subtitle: '1 of 99',  imageSrc: '/vanquish-zagato.png',    why: "The Vanquish Zagato came in four forms: Coupe, Volante, Shooting Brake, and Speedster (only 28 made). I used to prefer the Speedster, but the Coupe has the cleanest lines and I've come around completely. The taillights are my favorite detail, so Italian, and the contrast with the British platform underneath is exactly what makes this car special. The Zagato bubble roof, the circular fog lights, the silhouette: it's stunning from every angle." },
+      { title: 'Pagani Zonda R',                    subtitle: '1 of 13',  imageSrc: '/zonda-r.png',            why: "One of the most aggressive and menacing fronts of any car ever made. Track-only, black on black, one of the best-sounding cars ever built. The example pictured here is believed to be the one in Toronto, with delivery graphics removed and Zonda R Evo front and rear aero added. Some call this spec the \"Liquid.\" Only 13 were ever made, and every one of them is a work of art." },
+      { title: 'Mercedes-Benz SLR McLaren 722',      subtitle: '1 of 150', imageSrc: '/slr-722.png',            why: "A timeless car. The darkened headlights and taillights, the lowered suspension, the carbon fiber splitter, the silhouette: everything about this car feels like it was designed to age well. 150 coupes were made. I prefer the 722S wheels (the convertible spec) on this body, though this photo shows the standard coupe wheel. Either way, one of the great cars." },
     ],
   },
   {
@@ -241,7 +241,7 @@ export default function Home() {
         <motion.section
           id="work"
           {...fadeUp}
-          style={{ padding: isNarrow ? '0' : '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}
+          style={{ padding: isNarrow ? '0' : '24px', display: 'flex', flexDirection: 'column', gap: isNarrow ? '0' : '16px' }}
         >
           <ProjectCard
             title="Spark"
@@ -271,6 +271,7 @@ export default function Home() {
             imageSrc="/navora-preview.png"
             imageAlt="Navora iOS app screenshot"
             imagePosition="78% 35%"
+            imageInsetMobile={{ top: '10%' }}
             badge="Coming Soon"
           />
 
@@ -279,7 +280,7 @@ export default function Home() {
             headline="Co-founding the design and product direction for a platform that preserves the stories that matter most."
             tags={['Web App', 'End to End', 'AI']}
             bgStyle={{ background: 'radial-gradient(ellipse at 85% 80%, #D4AD74 0%, #907751 50%, #6A5230 100%)' }}
-            bgStyleMobile={{ background: 'radial-gradient(ellipse 110% 48% at 50% 108%, #C9A467 0%, transparent 70%), #5A3E22' }}
+            bgStyleMobile={{ background: 'radial-gradient(ellipse 170% 90% at 50% 112%, #C9A467 0%, transparent 58%), #5A3E22' }}
             textColor="#FFFFFF"
             iconBg="rgba(255,255,255,0.2)"
             iconSrc="/mystory-logo.png"
@@ -295,7 +296,7 @@ export default function Home() {
             headline="Shaping the early concept for a new social platform built around everything you're passionate about — music, film, cars, and beyond."
             tags={['Web App', 'UX', 'Social', '0→1']}
             bgStyle={{ background: 'radial-gradient(ellipse at 80% 45%, rgba(0,47,255,0.32) 0%, transparent 55%), radial-gradient(ellipse at 70% 70%, rgba(255,0,242,0.22) 0%, transparent 45%), #080808' }}
-            bgStyleMobile={{ background: 'radial-gradient(ellipse 100% 40% at 40% 105%, rgba(0,47,255,0.55) 0%, transparent 70%), radial-gradient(ellipse 80% 35% at 65% 108%, rgba(255,0,242,0.38) 0%, transparent 60%), #080808' }}
+            bgStyleMobile={{ background: 'radial-gradient(ellipse 150% 75% at 38% 110%, rgba(0,47,255,0.65) 0%, transparent 60%), radial-gradient(ellipse 130% 65% at 68% 112%, rgba(255,0,242,0.5) 0%, transparent 58%), #080808' }}
             textColor="#FFFFFF"
             iconBg="#1A1A1A"
             iconSrc="/ayo-logo.png"
@@ -312,10 +313,11 @@ export default function Home() {
         {/* ══════════════════════════════════════
             SECTION 2 — ABOUT
         ══════════════════════════════════════ */}
-        <motion.section id="about" {...fadeUp} style={{ padding: isNarrow ? '8px 0' : '24px' }}>
+        {isNarrow && <div style={{ height: '1px', background: '#E0E0DC', margin: '0 20px' }} />}
+        <motion.section id="about" {...fadeUp} style={{ padding: isNarrow ? '0' : '24px' }}>
           <div style={card}>
             <span style={eyebrow}>About</span>
-            <h2 style={heading}>A bit about me</h2>
+            <h2 style={heading}>Who I am</h2>
 
             <div style={{ display: 'flex', flexDirection: isNarrow ? 'column' : 'row', gap: '40px', alignItems: 'flex-start' }}>
               {/* Left — portrait + emoji switcher */}
@@ -399,10 +401,11 @@ export default function Home() {
         {/* ══════════════════════════════════════
             SECTION 2B — FAVORITES
         ══════════════════════════════════════ */}
-        <motion.section {...fadeUp} style={{ padding: isNarrow ? '0 0 8px' : '0 24px 24px' }}>
+        {isNarrow && <div style={{ height: '1px', background: '#E0E0DC', margin: '0 20px' }} />}
+        <motion.section {...fadeUp} style={{ padding: isNarrow ? '0' : '0 24px 24px' }}>
           <div style={card}>
             <span style={eyebrow}>Favorites</span>
-            <h2 style={heading}>And the things that inspire me</h2>
+            <h2 style={heading}>Things that inspire me</h2>
 
             {/* Category tabs — reuse Process tab style */}
             <div style={{ display: 'flex', gap: '8px', marginBottom: '24px', flexWrap: 'wrap' }}>
@@ -536,10 +539,6 @@ export default function Home() {
                       transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
                       style={{ flex: 1, background: '#EFEFED', borderRadius: '14px', padding: '24px', minWidth: 0, height: '360px', overflow: 'hidden', position: 'relative' }}
                     >
-                      <button
-                        onClick={() => setSelectedItem(null)}
-                        style={{ position: 'absolute', top: '16px', right: '16px', background: 'none', border: 'none', cursor: 'pointer', fontSize: '20px', color: '#bbb', lineHeight: 1, padding: 0, zIndex: 1 }}
-                      >×</button>
                       <div style={{ height: '100%', overflowY: 'auto' }}>
                         <AnimatePresence mode="wait">
                           <motion.div
@@ -584,10 +583,6 @@ export default function Home() {
                     transition={{ duration: 0.2 }}
                     style={{ marginTop: '16px', background: '#EFEFED', borderRadius: '14px', padding: '20px', position: 'relative', minHeight: '200px' }}
                   >
-                    <button
-                      onClick={() => setSelectedItem(null)}
-                      style={{ position: 'absolute', top: '14px', right: '14px', background: 'none', border: 'none', cursor: 'pointer', fontSize: '20px', color: '#bbb', lineHeight: 1, padding: 0 }}
-                    >×</button>
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={`mcontent-${activeCat}-${selectedItem}`}
@@ -664,7 +659,8 @@ export default function Home() {
         {/* ══════════════════════════════════════
             SECTION 3 — PROCESS (combined)
         ══════════════════════════════════════ */}
-        <motion.section id="process" {...fadeUp} style={{ padding: isNarrow ? '8px 0 0' : '24px' }}>
+        {isNarrow && <div style={{ height: '1px', background: '#E0E0DC', margin: '0 20px' }} />}
+        <motion.section id="process" {...fadeUp} style={{ padding: isNarrow ? '0' : '24px' }}>
           <div style={card}>
             <div style={{ display: 'flex', flexDirection: isNarrow ? 'column' : 'row', gap: isNarrow ? '28px' : '56px', alignItems: 'flex-start' }}>
 
@@ -715,7 +711,8 @@ export default function Home() {
         {/* ══════════════════════════════════════
             SECTION 5 — CTA
         ══════════════════════════════════════ */}
-        <motion.section {...fadeUp} style={{ padding: isNarrow ? '8px 12px 40px' : '24px 24px 48px' }}>
+        {isNarrow && <div style={{ height: '1px', background: '#E0E0DC', margin: '0 20px' }} />}
+        <motion.section {...fadeUp} style={{ padding: isNarrow ? '8px 12px 16px' : '24px 24px 28px' }}>
           <div
             style={{
               background:     '#111',

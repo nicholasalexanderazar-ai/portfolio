@@ -113,7 +113,7 @@ The key design challenge was turning AI from an open-ended chat interface into a
       {
         title: "Problem",
         subheading: "Ideas are easy to capture, but hard to develop.",
-        body: `People are good at capturing ideas. They are much worse at developing them. Most ideas end up scattered across Notes, voice memos, texts, or unfinished ChatGPT threads. The problem is not capture — it is what happens after capture.`,
+        body: `People are good at capturing ideas. They are much worse at developing them. Most ideas end up scattered across Notes, voice memos, texts, or unfinished ChatGPT threads. The problem is not capture; it is what happens after capture.`,
         imageBlock: {
           images: [
             { src: '/spark-problem-notes.png',       caption: 'Notes captures the idea, but gives it no direction.' },
@@ -130,7 +130,7 @@ The key design challenge was turning AI from an open-ended chat interface into a
         phases: ["Define", "Research", "Position", "Brand", "Vault", "Validate"],
         body: `I chose a phased architecture because a blank chat interface puts too much responsibility on the user. The phases gave the product a clear information architecture: each step had a purpose, an output, and a next action.
 
-Each phase builds on the last — the idea gets clearer, sharper, and more testable as it moves through the system.`,
+Each phase builds on the last, and the idea gets clearer, sharper, and more testable as it moves through the system.`,
         videos: [
           {
             tab: 'Core Flow',
@@ -179,7 +179,7 @@ Each phase builds on the last — the idea gets clearer, sharper, and more testa
         subheading: "A working native iOS product from concept to build",
         body: `I designed and built Spark as a working native iOS product, including the core UX architecture, phase system, AI-assisted workflows, validation reports, and voice readback interaction.
 
-The hardest part was turning AI output into a coherent product system. The value was not just in the model response — it was in how the app framed the task, managed state, structured the output, and helped the user decide what to do next. The project covers product strategy, UX architecture, interaction design, visual design, and implementation end to end.`,
+The hardest part was turning AI output into a coherent product system. The value was not just in the model response; it was in how the app framed the task, managed state, structured the output, and helped the user decide what to do next. The project covers product strategy, UX architecture, interaction design, visual design, and implementation end to end.`,
       },
     ],
   },

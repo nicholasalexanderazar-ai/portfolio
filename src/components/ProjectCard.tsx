@@ -82,7 +82,7 @@ export default function ProjectCard({
       transition={{ duration: 0.25 }}
       style={{
         width: '100%',
-        borderRadius: '20px',
+        borderRadius: isNarrow ? '0' : '20px',
         overflow: 'hidden',
         cursor: isClickable ? 'pointer' : 'default',
         position: 'relative',
