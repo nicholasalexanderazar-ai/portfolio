@@ -241,7 +241,7 @@ export default function Home() {
         <motion.section
           id="work"
           {...fadeUp}
-          style={{ padding: isNarrow ? '0' : '24px', display: 'flex', flexDirection: 'column', gap: isNarrow ? '0' : '16px' }}
+          style={{ padding: isNarrow ? '8px 12px' : '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}
         >
           <ProjectCard
             title="Spark"
@@ -280,7 +280,7 @@ export default function Home() {
             headline="Co-founding the design and product direction for a platform that preserves the stories that matter most."
             tags={['Web App', 'End to End', 'AI']}
             bgStyle={{ background: 'radial-gradient(ellipse at 85% 80%, #D4AD74 0%, #907751 50%, #6A5230 100%)' }}
-            bgStyleMobile={{ background: 'radial-gradient(ellipse 170% 90% at 50% 112%, #C9A467 0%, transparent 58%), #5A3E22' }}
+            bgStyleMobile={{ background: 'radial-gradient(ellipse 190% 140% at 50% 100%, #D4AD74 0%, transparent 65%), #5A3E22' }}
             textColor="#FFFFFF"
             iconBg="rgba(255,255,255,0.2)"
             iconSrc="/mystory-logo.png"
@@ -293,10 +293,10 @@ export default function Home() {
 
           <ProjectCard
             title="AYO"
-            headline="Shaping the early concept for a new social platform built around everything you're passionate about — music, film, cars, and beyond."
+            headline="Shaping the early concept for a social platform that turns your opinions, and your engagement with others', into your identity."
             tags={['Web App', 'UX', 'Social', '0→1']}
             bgStyle={{ background: 'radial-gradient(ellipse at 80% 45%, rgba(0,47,255,0.32) 0%, transparent 55%), radial-gradient(ellipse at 70% 70%, rgba(255,0,242,0.22) 0%, transparent 45%), #080808' }}
-            bgStyleMobile={{ background: 'radial-gradient(ellipse 150% 75% at 38% 110%, rgba(0,47,255,0.65) 0%, transparent 60%), radial-gradient(ellipse 130% 65% at 68% 112%, rgba(255,0,242,0.5) 0%, transparent 58%), #080808' }}
+            bgStyleMobile={{ background: 'radial-gradient(ellipse 175% 120% at 38% 100%, rgba(0,47,255,0.7) 0%, transparent 65%), radial-gradient(ellipse 155% 105% at 68% 102%, rgba(255,0,242,0.55) 0%, transparent 62%), #080808' }}
             textColor="#FFFFFF"
             iconBg="#1A1A1A"
             iconSrc="/ayo-logo.png"
@@ -317,7 +317,7 @@ export default function Home() {
         <motion.section id="about" {...fadeUp} style={{ padding: isNarrow ? '0' : '24px' }}>
           <div style={card}>
             <span style={eyebrow}>About</span>
-            <h2 style={heading}>Who I am</h2>
+            <h2 style={heading}>A bit about me</h2>
 
             <div style={{ display: 'flex', flexDirection: isNarrow ? 'column' : 'row', gap: '40px', alignItems: 'flex-start' }}>
               {/* Left — portrait + emoji switcher */}
@@ -711,13 +711,12 @@ export default function Home() {
         {/* ══════════════════════════════════════
             SECTION 5 — CTA
         ══════════════════════════════════════ */}
-        {isNarrow && <div style={{ height: '1px', background: '#E0E0DC', margin: '0 20px' }} />}
-        <motion.section {...fadeUp} style={{ padding: isNarrow ? '8px 12px 16px' : '24px 24px 28px' }}>
+        <motion.section {...fadeUp} style={{ padding: isNarrow ? '0 0 24px' : '24px 24px 28px' }}>
           <div
             style={{
-              background:     '#111',
-              borderRadius:   '20px',
-              padding:        isNarrow ? '32px 28px' : '48px',
+              background:     isNarrow ? '#F7F7F5' : '#111',
+              borderRadius:   isNarrow ? '0' : '20px',
+              padding:        isNarrow ? '32px 20px' : '48px',
               display:        'flex',
               flexDirection:  isNarrow ? 'column' : 'row',
               justifyContent: 'space-between',
@@ -726,14 +725,14 @@ export default function Home() {
             }}
           >
             <div>
-              <h2 style={{ color: '#fff', fontSize: isNarrow ? '26px' : '32px', fontWeight: '500', marginBottom: '6px', fontFamily: 'var(--font-serif)' }}>
+              <h2 style={{ color: isNarrow ? '#111' : '#fff', fontSize: isNarrow ? '26px' : '32px', fontWeight: '500', marginBottom: '6px', fontFamily: 'var(--font-serif)' }}>
                 Want to work together?
               </h2>
-              <div style={{ color: '#666', fontSize: '14px' }}>
+              <div style={{ color: '#888', fontSize: '14px' }}>
                 Currently open to full-time product design roles.
               </div>
             </div>
-            <CopyEmailButton dark />
+            <CopyEmailButton dark={!isNarrow} />
           </div>
         </motion.section>
 

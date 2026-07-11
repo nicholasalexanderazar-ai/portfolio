@@ -69,18 +69,22 @@ const sectionLabel: React.CSSProperties = {
 
 function SectionImageBlock({ block }: { block: ProjectSectionImage }) {
   const items = block.images ?? []
-  const [activeIdx, setActiveIdx] = useState(0)
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const [activeIdx, setActiveIdx]       = useState(0)
+  const [captionVisible, setCaptionVisible] = useState(true)
+
+  useEffect(() => {
+    if (items.length <= 1) return
+    const t = setInterval(() => {
+      setCaptionVisible(false)
+      setTimeout(() => {
+        setActiveIdx(i => (i + 1) % items.length)
+        setCaptionVisible(true)
+      }, 220)
+    }, 3200)
+    return () => clearInterval(t)
+  }, [items.length])
 
   if (items.length === 0 && !block.src) return null
-
-  const onScroll = () => {
-    const el = scrollRef.current
-    if (!el) return
-    const slideWidth = el.offsetWidth * 0.76 + 12
-    const idx = Math.round(el.scrollLeft / slideWidth)
-    setActiveIdx(Math.max(0, Math.min(idx, items.length - 1)))
-  }
 
   return (
     <>
@@ -126,45 +130,31 @@ function SectionImageBlock({ block }: { block: ProjectSectionImage }) {
         </div>
       )}
 
-      {/* ── Mobile: full-bleed gray container, clickable stack, caption below ── */}
+      {/* ── Mobile: full-bleed, 3 images side by side, auto-rotating caption ── */}
       <div
         className="problem-images-mobile"
         style={{ display: 'none', flexDirection: 'column' }}
       >
-        <div style={{ background: '#D9D9D9', margin: '0 -24px', overflow: 'hidden' }}>
-          {items.map((item, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveIdx(i)}
-              style={{
-                display:     'block',
-                width:       '100%',
-                border:      'none',
-                borderTop:   i > 0 ? '2px solid #fff' : 'none',
-                background:  'transparent',
-                cursor:      'pointer',
-                padding:     '20px 24px',
-                position:    'relative',
-                outline:     'none',
-              }}
-            >
-              <img src={item.src} alt="" style={{ width: '78%', display: 'block', margin: '0 auto', borderRadius: '10px' }} />
-              {activeIdx === i && (
-                <div style={{
-                  position:     'absolute',
-                  inset:        '6px',
-                  border:       '2.5px solid rgba(0,0,0,0.35)',
-                  borderRadius: '10px',
-                  pointerEvents:'none',
-                }} />
-              )}
-            </button>
-          ))}
+        <div style={{ background: '#D9D9D9', margin: '0 -24px', padding: '20px 16px' }}>
+          <div style={{ display: 'flex', gap: '8px' }}>
+            {items.map((item, i) => (
+              <div key={i} style={{ flex: 1 }}>
+                <img src={item.src} alt="" style={{ width: '100%', display: 'block', borderRadius: '8px' }} />
+              </div>
+            ))}
+          </div>
         </div>
         {items.length > 0 && (
-          <p style={{ fontSize: '13px', color: '#999', lineHeight: '1.55', margin: '12px 0 0', textAlign: 'center', minHeight: '38px' }}>
-            {items[activeIdx]?.caption}
-          </p>
+          <div style={{ marginTop: '10px', minHeight: '52px' }}>
+            <p style={{ fontSize: '13px', color: '#999', lineHeight: '1.55', margin: 0, textAlign: 'center', transition: 'opacity 0.22s ease', opacity: captionVisible ? 1 : 0 }}>
+              {items[activeIdx]?.caption}
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', marginTop: '7px' }}>
+              {items.map((_, i) => (
+                <div key={i} style={{ width: '5px', height: '5px', borderRadius: '50%', background: i === activeIdx ? '#888' : '#D0D0CE', transition: 'background 0.3s' }} />
+              ))}
+            </div>
+          </div>
         )}
       </div>
 
@@ -191,16 +181,6 @@ function SectionLightboxImage({ img }: { img: ProjectSectionLightboxImage }) {
 }
 
 function SectionOutcomeImages({ items }: { items: ProjectSectionOutcomeItem[] }) {
-  const [activeDot, setActiveDot] = useState(0)
-  const scrollRef = useRef<HTMLDivElement>(null)
-
-  const onScroll = () => {
-    const el = scrollRef.current
-    if (!el) return
-    const idx = Math.round(el.scrollLeft / el.offsetWidth)
-    setActiveDot(Math.min(idx, items.length - 1))
-  }
-
   return (
     <>
       {/* Desktop 3-col */}
@@ -215,10 +195,10 @@ function SectionOutcomeImages({ items }: { items: ProjectSectionOutcomeItem[] })
         ))}
       </div>
 
-      {/* Mobile: vertical stack */}
-      <div className="problem-images-mobile" style={{ display: 'none', flexDirection: 'column', gap: '10px' }}>
+      {/* Mobile: 3 side by side */}
+      <div className="problem-images-mobile" style={{ display: 'none', flexDirection: 'row', gap: '8px' }}>
         {items.map((item, i) => (
-          <div key={i} style={{ background: '#F5F5F3', borderRadius: '12px', padding: '20px' }}>
+          <div key={i} style={{ flex: 1 }}>
             <img src={item.src} alt={item.label} style={{ width: '100%', display: 'block', borderRadius: '10px' }} />
           </div>
         ))}
