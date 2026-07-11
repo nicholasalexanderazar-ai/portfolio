@@ -1,5 +1,5 @@
 /* Case study — project-colored sidebar + right panel with white content card */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Tag from '../components/Tag'
@@ -93,31 +93,17 @@ function SectionImageBlock({ block }: { block: ProjectSectionImage }) {
         }
       </div>
 
-      {/* ── Mobile: horizontal scroll carousel ── */}
+      {/* ── Mobile: vertical stack ── */}
       <div
         className="problem-images-mobile"
-        style={{
-          overflowX:      'auto',
-          scrollSnapType: 'x mandatory',
-          display:        'none',
-          gap:            '12px',
-          paddingBottom:  '8px',
-          scrollbarWidth: 'none',
-        }}
+        style={{ display: 'none', flexDirection: 'column', gap: '12px' }}
       >
         {items.map((item, i) => (
           <div
             key={i}
-            style={{
-              width:           '78vw',
-              flexShrink:      0,
-              scrollSnapAlign: 'start',
-              background:      '#D9D9D9',
-              borderRadius:    '16px',
-              padding:         '20px',
-            }}
+            style={{ background: '#D9D9D9', borderRadius: '16px', padding: '20px' }}
           >
-            <img src={item.src} alt={item.caption} style={{ width: '100%', display: 'block' }} />
+            <img src={item.src} alt={item.caption} style={{ width: '72%', display: 'block', margin: '0 auto', borderRadius: '10px' }} />
           </div>
         ))}
       </div>
@@ -167,6 +153,16 @@ function SectionLightboxImage({ img }: { img: ProjectSectionLightboxImage }) {
 }
 
 function SectionOutcomeImages({ items }: { items: ProjectSectionOutcomeItem[] }) {
+  const [activeDot, setActiveDot] = useState(0)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const onScroll = () => {
+    const el = scrollRef.current
+    if (!el) return
+    const idx = Math.round(el.scrollLeft / el.offsetWidth)
+    setActiveDot(Math.min(idx, items.length - 1))
+  }
+
   return (
     <>
       {/* Desktop 3-col */}
@@ -182,15 +178,24 @@ function SectionOutcomeImages({ items }: { items: ProjectSectionOutcomeItem[] })
       </div>
 
       {/* Mobile carousel */}
-      <div
-        className="problem-images-mobile"
-        style={{ display: 'none', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '12px', paddingBottom: '8px', scrollbarWidth: 'none' }}
-      >
-        {items.map((item, i) => (
-          <div key={i} style={{ width: '78vw', flexShrink: 0, scrollSnapAlign: 'start', background: '#F5F5F3', borderRadius: '16px', padding: '20px' }}>
-            <img src={item.src} alt={item.label} style={{ width: '100%', display: 'block', borderRadius: '12px' }} />
-          </div>
-        ))}
+      <div className="problem-images-mobile" style={{ display: 'none', flexDirection: 'column', gap: '10px' }}>
+        <div
+          ref={scrollRef}
+          onScroll={onScroll}
+          style={{ display: 'flex', overflowX: 'auto', scrollSnapType: 'x mandatory', gap: '12px', scrollbarWidth: 'none' }}
+        >
+          {items.map((item, i) => (
+            <div key={i} style={{ width: '82vw', flexShrink: 0, scrollSnapAlign: 'start', background: '#F5F5F3', borderRadius: '16px', padding: '20px' }}>
+              <img src={item.src} alt={item.label} style={{ width: '100%', display: 'block', borderRadius: '12px' }} />
+            </div>
+          ))}
+        </div>
+        {/* Dot indicators */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '6px' }}>
+          {items.map((_, i) => (
+            <div key={i} style={{ width: '6px', height: '6px', borderRadius: '50%', background: i === activeDot ? '#111' : '#D0D0CE', transition: 'background 0.2s' }} />
+          ))}
+        </div>
       </div>
     </>
   )
@@ -367,6 +372,8 @@ export default function CaseStudy() {
   const isMobile    = useBreakpoint(1280)
 
   const project = projects.find(p => p.id === id)
+
+  useEffect(() => { window.scrollTo(0, 0) }, [])
 
   useEffect(() => {
     if (!project) return

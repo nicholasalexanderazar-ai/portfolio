@@ -33,6 +33,7 @@ interface ProjectCardProps {
   badge?: string
   imageContainerStyle?: CSSProperties
   imageInset?: { top?: string; left?: string; right?: string; bottom?: string }
+  imageInsetMobile?: { top?: string; left?: string; right?: string; bottom?: string }
   bgStyleMobile?: CSSProperties
 }
 
@@ -55,6 +56,7 @@ export default function ProjectCard({
   badge,
   imageContainerStyle,
   imageInset,
+  imageInsetMobile,
   bgStyleMobile,
 }: ProjectCardProps) {
   const navigate = useNavigate()
@@ -194,13 +196,16 @@ export default function ProjectCard({
         ...imageContainerStyle,
       }}>
         {imageSrc ? (
-          <div style={imageInset ? {
-            position: 'absolute',
-            top: imageInset.top ?? 0,
-            left: imageInset.left ?? 0,
-            right: imageInset.right ?? 0,
-            bottom: imageInset.bottom ?? 0,
-          } : { position: 'absolute', inset: 0 }}>
+          <div style={(() => {
+            const inset = isNarrow && imageInsetMobile ? imageInsetMobile : imageInset
+            return inset ? {
+              position: 'absolute',
+              top: inset.top ?? 0,
+              left: inset.left ?? 0,
+              right: inset.right ?? 0,
+              bottom: inset.bottom ?? 0,
+            } : { position: 'absolute', inset: 0 }
+          })()}>
             <motion.img
               src={imageSrc}
               alt={imageAlt}

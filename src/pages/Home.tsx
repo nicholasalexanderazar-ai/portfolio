@@ -256,6 +256,7 @@ export default function Home() {
             href="/spark"
             imageSrc="/spark-preview.png"
             imageAlt="Spark app screenshot"
+            imageInsetMobile={{ top: '10%' }}
           />
 
           <ProjectCard
@@ -286,6 +287,7 @@ export default function Home() {
             href={null}
             imageSrc="/mystory-preview.png"
             imageAlt="MyStory platform screenshot"
+            imageInsetMobile={{ top: '8%' }}
             badge="Coming Soon"
           />
 
@@ -302,6 +304,7 @@ export default function Home() {
             imageSrc="/ayo-preview.png"
             imageAlt="AYO platform screenshot"
             imageInset={{ top: '22%', bottom: '12%', left: '4%', right: '8%' }}
+            imageInsetMobile={{ top: '28%', bottom: '12%', left: '4%', right: '8%' }}
             badge="Coming Soon"
           />
 
@@ -704,16 +707,16 @@ export default function Home() {
             style={{
               background:     '#111',
               borderRadius:   '20px',
-              padding:        '48px',
+              padding:        isNarrow ? '32px 28px' : '48px',
               display:        'flex',
-              flexDirection:  'row',
+              flexDirection:  isNarrow ? 'column' : 'row',
               justifyContent: 'space-between',
-              alignItems:     'center',
-              gap:            '32px',
+              alignItems:     isNarrow ? 'flex-start' : 'center',
+              gap:            isNarrow ? '24px' : '32px',
             }}
           >
             <div>
-              <h2 style={{ color: '#fff', fontSize: '32px', fontWeight: '500', marginBottom: '6px', fontFamily: 'var(--font-serif)' }}>
+              <h2 style={{ color: '#fff', fontSize: isNarrow ? '26px' : '32px', fontWeight: '500', marginBottom: '6px', fontFamily: 'var(--font-serif)' }}>
                 Want to work together?
               </h2>
               <div style={{ color: '#666', fontSize: '14px' }}>

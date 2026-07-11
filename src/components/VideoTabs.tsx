@@ -182,7 +182,7 @@ export default function VideoTabs({ items }: { items: VideoTabItem[] }) {
       </div>
 
       {/* Tabs — centered below */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px', justifyContent: 'flex-start' }}>
         {items.map((item, i) => (
           <button
             key={item.tab}
