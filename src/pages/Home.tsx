@@ -61,11 +61,11 @@ const heading: CSSProperties = {
 
 /* ─── About content ─────────────────────────────────────── */
 const ABOUT_IMAGES = [
-  { emoji: '🏡', src: '/family-pic.png',  label: 'Background' },
-  { emoji: '🌾', src: '/uzbek-pic.png',   label: 'Uzbekistan' },
-  { emoji: '🎥', src: '/mystory-pic.png', label: 'MyStory'   },
-  { emoji: '🌸', src: '/beauty-pic.png',  label: 'Passions'   },
-] as const
+  { emoji: '🏡', src: '/family-pic.png',  mobileSrc: '/family-pic-mobile.png',  label: 'Background' },
+  { emoji: '🌾', src: '/uzbek-pic.png',   mobileSrc: '/uzbek-pic-mobile.png',   label: 'Uzbekistan' },
+  { emoji: '🎥', src: '/mystory-pic.png', mobileSrc: '/mystory-pic-mobile.png', label: 'MyStory'    },
+  { emoji: '🌸', src: '/beauty-pic.png',  mobileSrc: '/beauty-pic-mobile.png',  label: 'Passions'   },
+]
 
 const aboutFacts = [
   {
@@ -227,7 +227,7 @@ export default function Home() {
         style={{
           flex:       1,
           minHeight:  '100vh',
-          background: '#ffffff',
+          background: '#F7F7F5',
           /* negative x-offset casts shadow leftward onto the sidebar */
           boxShadow:  isMobile ? 'none' : '-6px 4px 16px rgba(0,0,0,0.12)',
           position:   'relative',
@@ -287,7 +287,7 @@ export default function Home() {
             href={null}
             imageSrc="/mystory-preview.png"
             imageAlt="MyStory platform screenshot"
-            imageInsetMobile={{ top: '16%' }}
+            imageInsetMobile={{ top: '34%', bottom: '12%', left: '4%', right: '8%' }}
             badge="Coming Soon"
           />
 
@@ -313,7 +313,6 @@ export default function Home() {
         {/* ══════════════════════════════════════
             SECTION 2 — ABOUT
         ══════════════════════════════════════ */}
-        {isNarrow && <div style={{ height: '1px', background: '#E0E0DC', margin: '0 20px' }} />}
         <motion.section id="about" {...fadeUp} style={{ padding: isNarrow ? '0' : '24px' }}>
           <div style={card}>
             <span style={eyebrow}>About</span>
@@ -325,7 +324,7 @@ export default function Home() {
                 <div
                   style={{
                     width: '100%',
-                    aspectRatio: '9/16',
+                    aspectRatio: isNarrow ? '16/9' : '9/16',
                     borderRadius: '16px',
                     overflow: 'hidden',
                     background: '#E8E8E8',
@@ -336,7 +335,7 @@ export default function Home() {
                     imgError[i] ? null : (
                       <img
                         key={i}
-                        src={img.src}
+                        src={isNarrow ? img.mobileSrc : img.src}
                         alt={img.label}
                         onError={() => setImgError(prev => ({ ...prev, [i]: true }))}
                         style={{
@@ -711,11 +710,11 @@ export default function Home() {
         {/* ══════════════════════════════════════
             SECTION 5 — CTA
         ══════════════════════════════════════ */}
-        <motion.section {...fadeUp} style={{ padding: isNarrow ? '0 0 24px' : '24px 24px 28px' }}>
+        <motion.section {...fadeUp} style={{ padding: isNarrow ? '12px 12px 24px' : '24px 24px 28px' }}>
           <div
             style={{
-              background:     isNarrow ? '#F7F7F5' : '#111',
-              borderRadius:   isNarrow ? '0' : '20px',
+              background:     '#111',
+              borderRadius:   '20px',
               padding:        isNarrow ? '32px 20px' : '48px',
               display:        'flex',
               flexDirection:  isNarrow ? 'column' : 'row',
@@ -725,14 +724,14 @@ export default function Home() {
             }}
           >
             <div>
-              <h2 style={{ color: isNarrow ? '#111' : '#fff', fontSize: isNarrow ? '26px' : '32px', fontWeight: '500', marginBottom: '6px', fontFamily: 'var(--font-serif)' }}>
+              <h2 style={{ color: '#fff', fontSize: isNarrow ? '26px' : '32px', fontWeight: '500', marginBottom: '6px', fontFamily: 'var(--font-serif)' }}>
                 Want to work together?
               </h2>
               <div style={{ color: '#888', fontSize: '14px' }}>
                 Currently open to full-time product design roles.
               </div>
             </div>
-            <CopyEmailButton dark={!isNarrow} />
+            <CopyEmailButton dark={true} />
           </div>
         </motion.section>
 

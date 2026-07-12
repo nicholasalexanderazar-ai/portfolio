@@ -116,7 +116,7 @@ The key design challenge was turning AI from an open-ended chat interface into a
         body: `People are good at capturing ideas. They are much worse at developing them. Most ideas end up scattered across Notes, voice memos, texts, or unfinished ChatGPT threads. The problem is not capture; it is what happens after capture.`,
         imageBlock: {
           images: [
-            { src: '/spark-problem-notes.png',       caption: 'Notes captures the idea, but gives it no direction.' },
+            { src: '/spark-problem-notes.png',       caption: 'Notes is fast for capture, but gives the idea no structure or path forward.' },
             { src: '/spark-problem-chatgpt.png',     caption: 'ChatGPT can help, but the user has to manage the process.' },
             { src: '/spark-problem-voice-memos.png', caption: 'Voice Memos are fast, but ideas become hard to find and act on.' },
           ],
