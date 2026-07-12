@@ -64,7 +64,7 @@ const ABOUT_IMAGES = [
   { emoji: '🏡', src: '/family-pic.png',  mobileSrc: '/family-pic-mobile.png',  label: 'Background' },
   { emoji: '🌾', src: '/uzbek-pic.png',   mobileSrc: '/uzbek-pic-mobile.png',   label: 'Uzbekistan' },
   { emoji: '🎥', src: '/mystory-pic.png', mobileSrc: '/mystory-pic-mobile.png', label: 'MyStory'    },
-  { emoji: '🌸', src: '/beauty-pic.png',  mobileSrc: '/beauty-pic-mobile.png',  label: 'Passions'   },
+  { emoji: '✨', src: '/beauty-pic.png',  mobileSrc: '/beauty-pic-mobile.png',  label: 'Passions'   },
 ]
 
 const aboutFacts = [
@@ -287,7 +287,7 @@ export default function Home() {
             href={null}
             imageSrc="/mystory-preview.png"
             imageAlt="MyStory platform screenshot"
-            imageInsetMobile={{ top: '16%', bottom: '0%', left: '12%', right: '12%' }}
+            imageInsetMobile={{ top: '6%', bottom: '0%', left: '4%', right: '4%' }}
             badge="Coming Soon"
           />
 
