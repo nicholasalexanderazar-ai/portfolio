@@ -287,7 +287,8 @@ export default function Home() {
             href={null}
             imageSrc="/mystory-preview.png"
             imageAlt="MyStory platform screenshot"
-            imageInsetMobile={{ top: '6%', bottom: '0%', left: '4%', right: '4%' }}
+            imageInset={{ top: '22%', bottom: '12%', left: '4%', right: '8%' }}
+            imageInsetMobile={{ top: '34%', bottom: '12%', left: '4%', right: '8%' }}
             badge="Coming Soon"
           />
 
