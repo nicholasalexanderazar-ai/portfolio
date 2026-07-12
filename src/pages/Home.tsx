@@ -294,9 +294,9 @@ export default function Home() {
 
           <ProjectCard
             title="AYO"
-            headline="Shaping the early concept for a social platform that turns your opinions, and your engagement with others', into your identity."
+            headline="Shaping the early concept for a social platform that turns your opinions into your identity."
             tags={['Web App', 'UX', 'Social', '0→1']}
-            bgStyle={{ background: 'radial-gradient(ellipse at 80% 45%, rgba(0,47,255,0.32) 0%, transparent 55%), radial-gradient(ellipse at 70% 70%, rgba(255,0,242,0.22) 0%, transparent 45%), #080808' }}
+            bgStyle={{ background: 'radial-gradient(ellipse at 80% 45%, rgba(0,47,255,0.38) 0%, transparent 70%), radial-gradient(ellipse at 70% 70%, rgba(255,0,242,0.28) 0%, transparent 60%), #080808' }}
             bgStyleMobile={{ background: 'radial-gradient(ellipse 175% 120% at 38% 100%, rgba(0,47,255,0.7) 0%, transparent 65%), radial-gradient(ellipse 155% 105% at 68% 102%, rgba(255,0,242,0.55) 0%, transparent 62%), #080808' }}
             textColor="#FFFFFF"
             iconBg="#1A1A1A"
