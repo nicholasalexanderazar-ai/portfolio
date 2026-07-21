@@ -539,7 +539,7 @@ export default function Home() {
                       transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
                       style={{ flex: 1, background: '#EFEFED', borderRadius: '14px', padding: '24px', minWidth: 0, height: '360px', overflow: 'hidden', position: 'relative' }}
                     >
-                      <div style={{ height: '100%', overflowY: 'auto' }}>
+                      <div style={{ height: '100%', overflow: 'hidden' }}>
                         <AnimatePresence mode="wait">
                           <motion.div
                             key={`content-${activeCat}-${selectedItem}`}
