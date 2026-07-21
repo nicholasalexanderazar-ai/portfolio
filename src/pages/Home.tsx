@@ -537,36 +537,34 @@ export default function Home() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: 16 }}
                       transition={{ duration: 0.28, ease: [0.4, 0, 0.2, 1] }}
-                      style={{ flex: 1, background: '#EFEFED', borderRadius: '14px', padding: '24px', minWidth: 0, height: '360px', overflow: 'hidden', position: 'relative' }}
+                      style={{ flex: 1, background: '#EFEFED', borderRadius: '14px', padding: '24px', minWidth: 0, alignSelf: 'flex-start', position: 'relative' }}
                     >
-                      <div style={{ height: '100%', overflow: 'hidden' }}>
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={`content-${activeCat}-${selectedItem}`}
-                            initial={{ opacity: 0, y: 6 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -4 }}
-                            transition={{ duration: 0.16 }}
-                          >
-                            {FAVORITES[activeCat].items[selectedItem].imageSrc && (
-                              <img
-                                src={FAVORITES[activeCat].items[selectedItem].imageSrc}
-                                alt=""
-                                style={{ width: '100%', aspectRatio: '3/2', objectFit: 'cover', borderRadius: '10px', marginBottom: '16px', display: 'block' }}
-                              />
-                            )}
-                            <div style={{ fontSize: '17px', fontWeight: '500', color: '#111', marginBottom: '4px', paddingRight: '28px' }}>
-                              {FAVORITES[activeCat].items[selectedItem].title}
-                            </div>
-                            <div style={{ fontSize: '12px', color: '#999', marginBottom: '14px' }}>
-                              {FAVORITES[activeCat].items[selectedItem].subtitle}
-                            </div>
-                            <p style={{ fontSize: '14px', color: '#555', lineHeight: '1.75', margin: 0 }}>
-                              {FAVORITES[activeCat].items[selectedItem].why}
-                            </p>
-                          </motion.div>
-                        </AnimatePresence>
-                      </div>
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={`content-${activeCat}-${selectedItem}`}
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -4 }}
+                          transition={{ duration: 0.16 }}
+                        >
+                          {FAVORITES[activeCat].items[selectedItem].imageSrc && (
+                            <img
+                              src={FAVORITES[activeCat].items[selectedItem].imageSrc}
+                              alt=""
+                              style={{ width: '100%', aspectRatio: '3/2', objectFit: 'cover', borderRadius: '10px', marginBottom: '16px', display: 'block' }}
+                            />
+                          )}
+                          <div style={{ fontSize: '17px', fontWeight: '500', color: '#111', marginBottom: '4px', paddingRight: '28px' }}>
+                            {FAVORITES[activeCat].items[selectedItem].title}
+                          </div>
+                          <div style={{ fontSize: '12px', color: '#999', marginBottom: '14px' }}>
+                            {FAVORITES[activeCat].items[selectedItem].subtitle}
+                          </div>
+                          <p style={{ fontSize: '14px', color: '#555', lineHeight: '1.75', margin: 0 }}>
+                            {FAVORITES[activeCat].items[selectedItem].why}
+                          </p>
+                        </motion.div>
+                      </AnimatePresence>
                     </motion.div>
                   )}
                 </AnimatePresence>
