@@ -247,7 +247,7 @@ export default function Home() {
             title="Spark"
             headline="Leading design and development of a native iOS app for AI-powered idea capture."
             tags={['iOS', '0→1', 'AI', 'Swift']}
-            bgStyle={{ background: 'radial-gradient(ellipse at 85% 80%, #3A3A3A 0%, #272727 45%, #1C1C1C 100%)' }}
+            bgStyle={{ background: 'radial-gradient(ellipse at 85% 80%, #3A3A3A 0%, #272727 45%, #1C1C1C 100%), radial-gradient(ellipse 60% 70% at 0% 100%, #000000 0%, transparent 100%)' }}
             bgStyleMobile={{ background: 'radial-gradient(ellipse at 50% 82%, #3A3A3A 0%, #272727 45%, #1C1C1C 100%)' }}
             textColor="#FFFFFF"
             iconBg="#FFD900"
@@ -262,7 +262,7 @@ export default function Home() {
             title="Navora"
             headline="Designing and building a life-planning app that turns long-term vision into daily action."
             tags={['iOS', '0→1', 'AI', 'UI/UX']}
-            bgStyle={{ background: 'radial-gradient(ellipse at 85% 80%, #5BAED4 0%, #2585B5 50%, #0D5F9A 100%)' }}
+            bgStyle={{ background: 'radial-gradient(ellipse at 85% 80%, #5BAED4 0%, #2585B5 50%, #0D5F9A 100%), radial-gradient(ellipse 60% 70% at 0% 100%, #041830 0%, transparent 100%)' }}
             bgStyleMobile={{ background: 'radial-gradient(ellipse at 50% 82%, #5BAED4 0%, #2585B5 50%, #0D5F9A 100%)' }}
             textColor="#FFFFFF"
             iconBg="rgba(255,255,255,0.2)"
@@ -279,7 +279,7 @@ export default function Home() {
             title="MyStory"
             headline="Co-founding the design and product direction for a platform that preserves the stories that matter most."
             tags={['Web App', 'End to End', 'AI']}
-            bgStyle={{ background: 'radial-gradient(ellipse at 85% 80%, #D4AD74 0%, #907751 50%, #6A5230 100%)' }}
+            bgStyle={{ background: 'radial-gradient(ellipse at 85% 80%, #D4AD74 0%, #907751 50%, #6A5230 100%), radial-gradient(ellipse 60% 70% at 0% 100%, #1E0E04 0%, transparent 100%)' }}
             bgStyleMobile={{ background: 'radial-gradient(ellipse 190% 140% at 50% 100%, #D4AD74 0%, transparent 65%), #5A3E22' }}
             textColor="#FFFFFF"
             iconBg="rgba(255,255,255,0.2)"
